@@ -1,0 +1,43 @@
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 10px;
+}
+.categories :hover {
+  background-color: #d796346e;
+}
+.category {
+  display: flex;
+  flex-direction: row;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #d79734;
+  background-color: #474747;
+  color: #d79734;
+  border-radius: 8px;
+  width: 100%;
+  padding: 5px;
+}
+
+.container {
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipes {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.recipe {
+}
+.img {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 150ms;
+}
