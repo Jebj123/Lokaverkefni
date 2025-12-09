@@ -1,13 +1,18 @@
 import type { ReactNode } from "react";
 import "./layout.style.css";
 import { Link } from "react-router-dom";
+import Logo from "/src/assets/Logo.png";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="layout">
       <header>
         <nav>
-          <Link to="/">Heim</Link>
-          <Link to="/Categories">Flokkar</Link>
+          <Link className="link" to="/">
+            <img className="Logo" src={Logo} />
+          </Link>
+          <Link className="link" to="/Categories">
+            Ég er Svangur
+          </Link>
         </nav>
       </header>
       <main>{children}</main>

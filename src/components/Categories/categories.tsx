@@ -42,8 +42,8 @@ const Categories = () => {
     <div className="container">
       <div className="wrapper">
         <div className="title">
-          <h5>Veldu Flokk</h5>
-          <h2>Hvað líst þér á</h2>
+          <h4>Veldu Flokk</h4>
+          <h3>Hvað líst þér á</h3>
         </div>
         <div className="categories">
           {categories?.map((category) => (
@@ -60,9 +60,9 @@ const Categories = () => {
           {recipes?.map((recipe) => (
             <div key={recipe.idMeal} className="recipe">
               <Link to={`/recipe/${recipe.idMeal}`} className="imgContainer">
-                <img className="img" src={recipe.strMealThumb} />
+                <img className="imgCategory" src={recipe.strMealThumb} />
+                <h3 className="h3Link">{recipe.strMeal}</h3>
               </Link>
-              <h3>{recipe.strMeal}</h3>
             </div>
           ))}
         </div>

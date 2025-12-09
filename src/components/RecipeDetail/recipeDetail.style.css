@@ -1,0 +1,35 @@
+.container {
+  min-height: calc(100vh - 60px);
+  width: 100%;
+  margin-top: 3.5rem;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2.5rem;
+}
+
+.ingredients {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
+.ingredient {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.metaData h2 {
+  font-size: 30px;
+}
+
+.instructions {
+  padding: 40px;
+}

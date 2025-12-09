@@ -11,16 +11,27 @@ main {
 
 header,
 footer {
-  background-color: rgb(206, 141, 20);
+  background-color: rgb(202, 139, 21);
   width: 100%;
 }
 
 nav {
   display: flex;
+  align-items: center;
   gap: 16px;
   padding: 16px 24px;
+  font-size: 25px;
 }
 
 footer {
   margin-top: auto;
+}
+
+.Logo {
+  width: 200px;
+}
+
+.link {
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }

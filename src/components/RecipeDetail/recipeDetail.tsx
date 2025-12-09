@@ -48,7 +48,6 @@ const recipeDetail = () => {
   return (
     <div className="container">
       <div className="wrapper">
-        <h2>Uppskrift</h2>
         <div className="recipe">
           <img className="img" src={recipe?.strMealThumb} />
           <div className="metaData">{recipe?.strMeal}</div>
@@ -60,8 +59,12 @@ const recipeDetail = () => {
               </div>
             ))}
           </div>
-          <div className="instructions">{instructions}</div>
         </div>
+      </div>
+
+      <div className="instructions">
+        <h3>Leiðbeiningar</h3>
+        <span>{instructions}</span>
       </div>
     </div>
   );
