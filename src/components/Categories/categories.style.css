@@ -5,6 +5,10 @@
   margin-bottom: 3rem;
   gap: 10px;
 }
+.category:hover {
+  background-color: #d4891896;
+  transform: scale(1.04);
+}
 
 .category {
   display: flex;
@@ -26,10 +30,11 @@
   padding-right: 30%;
 }
 
-.imgCategory {
+.imgLink {
   height: 300px;
   width: 300px;
   border-radius: 10px;
+  border: 1px solid rgb(216, 134, 11);
 }
 
 h4 {
@@ -40,7 +45,11 @@ h4 {
   color: orange;
 }
 
-.imgCategory :hover {
+.h3Link:hover {
+  text-decoration: underline 2px rgb(156, 86, 7);
+}
+
+.imgContainer :hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px rgba(255, 217, 0, 0.5);
 }

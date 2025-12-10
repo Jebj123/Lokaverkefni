@@ -42,7 +42,6 @@ const Categories = () => {
     <div className="container">
       <div className="wrapper">
         <div className="title">
-          <h4>Veldu Flokk</h4>
           <h3>Hvað líst þér á</h3>
         </div>
         <div className="categories">
@@ -59,8 +58,10 @@ const Categories = () => {
         <div className="recipes">
           {recipes?.map((recipe) => (
             <div key={recipe.idMeal} className="recipe">
-              <Link to={`/recipe/${recipe.idMeal}`} className="imgContainer">
-                <img className="imgCategory" src={recipe.strMealThumb} />
+              <Link to={`/recipe/${recipe.idMeal}`}>
+                <div className="imgContainer">
+                  <img className="imgLink" src={recipe.strMealThumb} />
+                </div>
                 <h3 className="h3Link">{recipe.strMeal}</h3>
               </Link>
             </div>

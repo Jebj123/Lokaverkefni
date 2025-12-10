@@ -16,20 +16,50 @@
 .ingredients {
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
+  border: 3px solid rgb(255, 156, 7);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .ingredient {
-  display: flex;
   gap: 1.5rem;
-  align-items: center;
+  text-align: start;
 }
 
-.metaData h2 {
+.metaData {
   font-size: 30px;
+  color: orange;
+  font-style: bold;
+  text-decoration: underline rgb(156, 86, 7);
 }
 
 .instructions {
-  padding: 40px;
+  width: 80%;
+}
+
+.imgDetail {
+  height: 325px;
+  width: 350px;
+  border-radius: 10px;
+  border: 2px solid rgb(216, 134, 11);
+}
+
+h3 {
+  color: orange;
+}
+.recipe {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 2%;
+  width: 70%;
+}
+
+.eachIng {
+  color: orange;
+}
+
+.recipeOrder {
+  padding-right: 10%;
 }

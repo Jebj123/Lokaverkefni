@@ -10,8 +10,8 @@ export default function Layout({ children }: { children: ReactNode }) {
           <Link className="link" to="/">
             <img className="Logo" src={Logo} />
           </Link>
-          <Link className="link" to="/Categories">
-            Ég er Svangur
+          <Link className="link2" to="/Categories">
+            I got the Munch
           </Link>
         </nav>
       </header>
