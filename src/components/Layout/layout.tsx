@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import "./layout.style.css";
 import { Link } from "react-router-dom";
 import Logo from "/src/assets/Logo.png";
+import SearchBar from "../Search/searchBar";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="layout">

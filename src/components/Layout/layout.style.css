@@ -19,6 +19,7 @@ footer {
 nav {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   gap: 16px;
   padding: 16px 24px;
   font-size: 25px;
