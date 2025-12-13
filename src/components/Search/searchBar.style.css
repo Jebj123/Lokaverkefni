@@ -6,3 +6,9 @@
 .h2-Search {
   color: orange;
 }
+
+.searchBar {
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+}

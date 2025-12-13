@@ -9,7 +9,6 @@ const searchBar = () => {
   );
   const [search, setSearch] = useState("");
   const [item, setItem] = useState([]);
-  const [show, setShow] = useState(false);
 
   useEffect(() => {
     fetch(url)
@@ -17,7 +16,6 @@ const searchBar = () => {
       .then((data) => {
         console.log(data);
         setItem(data.meals);
-        setShow(true);
       });
   }, [url]);
 
@@ -31,7 +29,7 @@ const searchBar = () => {
     <div className="Input-Wrap">
       <h2 className="h2-Search">Leitaðu að máltíð</h2>
       <input
-        className="searchbar"
+        className="searchBar"
         type="search"
         placeholder="Leita..."
         onChange={(e) => setSearch(e.target.value)}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./categories.style.css";
 import { Link } from "react-router-dom";
-import SearchBar from "../Search/searchBar";
 
 const Categories = () => {
   const URL_CATEGORIES =
