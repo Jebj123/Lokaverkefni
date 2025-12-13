@@ -4,49 +4,55 @@ import "./searchBar.style.css";
 import { Link } from "react-router-dom";
 
 const searchBar = () => {
-  const [input, setInput] = useState([]);
-  const [recipes, setRecipes] = useState([]);
-  const url_Search = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+  const [url, setUrl] = useState(
+    "https://www.themealdb.com/api/json/v1/1/search.php?s="
+  );
+  const [search, setSearch] = useState("");
+  const [item, setItem] = useState([]);
+  const [show, setShow] = useState(false);
 
-  const handleChange = (value) => {
-    setInput(value);
-    fetchData(value);
-  };
-  const fetchData = (value) => {
-    fetch(`${url_Search} ${input}`).then((response) =>
-      response.json().then((json) => {
-        console.log(json);
-        const results = json.filter((user) => {
-          return value && user && user.idMeal && user.idMeal.includes(value);
-        });
-        setRecipes(results);
-        console.log(results);
-      })
-    );
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setItem(data.meals);
+        setShow(true);
+      });
+  }, [url]);
+
+  const searchRecipe = (evnt) => {
+    if (evnt.key == "Enter") {
+      setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`);
+    }
   };
 
   return (
     <div className="Input-Wrap">
+      <h2>Leitaðu að máltíð</h2>
       <input
-        className="Input"
-        type="text"
+        className="searchbar"
+        type="search"
         placeholder="Leita..."
-        value={input}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={(e) => setSearch(e.target.value)}
+        onKeyPress={searchRecipe}
       />
-      <FaSearch className="search-Icon" />
       <div>
-        <div className="recipes">
-          {recipes?.map((recipe) => (
-            <div key={recipe.idMeal} className="recipe">
-              <Link to={`/recipe/${recipe.idMeal}`}>
-                <div className="imgContainer">
-                  <img className="imgLink" src={recipe.strMealThumb} />
+        <div className="container">
+          <div className="wrapper">
+            <div className="recipes">
+              {item?.map((recipe) => (
+                <div key={recipe.idMeal} className="recipe">
+                  <Link to={`/recipe/${recipe.idMeal}`}>
+                    <div className="imgContainer">
+                      <img className="imgLink" src={recipe.strMealThumb} />
+                    </div>
+                    <h3 className="h3Link">{recipe.strMeal}</h3>
+                  </Link>
                 </div>
-                <h3 className="h3Link">{recipe.strMeal}</h3>
-              </Link>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </div>
