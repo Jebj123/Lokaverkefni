@@ -5,6 +5,7 @@ import NotFound from "./components/NotFound/notFound";
 import Layout from "./components/Layout/layout";
 import Categories from "./components/Categories/categories";
 import Home from "./components/Home/home";
+import SearchBar from "./components/Search/searchBar";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/recipe/:id" element={<RecipeDetail />} />
+          <Route path="/search" element={<SearchBar />} />
         </Routes>
       </Layout>
     </BrowserRouter>

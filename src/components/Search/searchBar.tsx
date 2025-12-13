@@ -29,7 +29,7 @@ const searchBar = () => {
 
   return (
     <div className="Input-Wrap">
-      <h2>Leitaðu að máltíð</h2>
+      <h2 className="h2-Search">Leitaðu að máltíð</h2>
       <input
         className="searchbar"
         type="search"

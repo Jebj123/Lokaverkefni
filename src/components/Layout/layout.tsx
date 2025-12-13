@@ -12,7 +12,10 @@ export default function Layout({ children }: { children: ReactNode }) {
             <img className="Logo" src={Logo} />
           </Link>
           <Link className="link2" to="/Categories">
-            I got the Munch
+            I got the Categorical Munch
+          </Link>
+          <Link className="link3" to="/search">
+            The Search for the Munch
           </Link>
         </nav>
       </header>

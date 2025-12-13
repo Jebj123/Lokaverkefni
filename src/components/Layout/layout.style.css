@@ -47,3 +47,12 @@ header {
 .link2:hover {
   color: rgb(204, 45, 45);
 }
+
+.link3 {
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-decoration: underline;
+}
+.link3:hover {
+  color: rgb(204, 45, 45);
+}

@@ -1,0 +1,28 @@
+.noMonkeyBuissness {
+  height: 600px;
+  width: 400px;
+  border-radius: 20px;
+  border: 2px solid orange;
+}
+.container3 {
+  width: 60%;
+}
+
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.h2-Home {
+  color: orange;
+  text-decoration: underline;
+}
+
+.information {
+  padding-top: 50%;
+}
+.para-home {
+  border: 2px solid orange;
+  border-radius: 10px;
+  padding: 20px;
+}
