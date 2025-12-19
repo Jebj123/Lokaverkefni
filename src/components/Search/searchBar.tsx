@@ -14,7 +14,6 @@ const searchBar = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setItem(data.meals);
       });
   }, [url]);
