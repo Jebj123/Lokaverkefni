@@ -31,10 +31,10 @@ const home = () => {
         <div className="information">
           <p className="para-home">
             Monkey le Piu betur þekktur sem API-nn er víða þekktur í
-            Kokkaheiminum hefur unnið með mörgum kokkum eins og Gordon Ramsey,
-            Marco Pierre White, Nick DiGiovanni og Jean-Georges Vongerichten.
-            Hann hefur Leitað af bestu uppskriftun heimsálfanna og hefur loksins
-            sett það á netið fyrir alla til að njóta
+            Kokkaheiminum. Hann hefur unnið með mörgum kokkum eins og Gordon
+            Ramsey, Marco Pierre White, Nick DiGiovanni og Jean-Georges
+            Vongerichten. Hann hefur Leitað af bestu uppskriftun heimsálfanna og
+            hefur loksins sett það á netið fyrir alla til að njóta
           </p>
         </div>
         <div className="randomMeal">
