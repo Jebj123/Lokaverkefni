@@ -24,7 +24,7 @@
 
 .information {
   padding-top: 40%;
-  padding-left: 60px;
+  padding-left: 10%;
 }
 .para-home {
   border: 2px solid orange;
@@ -40,4 +40,8 @@
   height: 400px;
   border-radius: 10px;
   border: 2px solid orange;
+}
+
+.recipes {
+  padding-left: 20%;
 }

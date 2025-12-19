@@ -36,8 +36,8 @@ const searchBar = () => {
         onKeyPress={searchRecipe}
       />
       <div>
-        <div className="container">
-          <div className="wrapper">
+        <div className="containerSearch">
+          <div className="wrapperSearch">
             <div className="recipes">
               {item?.map((recipe) => (
                 <div key={recipe.idMeal} className="recipe">

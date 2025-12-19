@@ -39,10 +39,10 @@ const Categories = () => {
   }, [activeCategory]);
 
   return (
-    <div className="container">
-      <div className="wrapper">
+    <div className="containerCat">
+      <div className="wrapperCat">
         <div className="title">
-          <h3>Hvað líst þér á</h3>
+          <h2 className="h2-Cat">Hvað líst þér á</h2>
         </div>
         <div className="categories">
           {categories?.map((category) => (
