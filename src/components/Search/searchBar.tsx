@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import React, { Activity, useEffect, useState } from "react";
 import "./searchBar.style.css";
 import { Link } from "react-router-dom";
 
@@ -9,6 +8,24 @@ const searchBar = () => {
   );
   const [search, setSearch] = useState("");
   const [item, setItem] = useState([]);
+  const [show, setShow] = useState(false);
+  const [randomMeals, setRandomMeals] = useState([]);
+  const url_Random_Meals =
+    "https://www.themealdb.com/api/json/v2/65232507/randomselection.php";
+
+  useEffect(() => {
+    const RandomRecipes = async () => {
+      try {
+        const res = await fetch(`${url_Random_Meals}`);
+        const data = await res.json();
+        console.log(data);
+        setRandomMeals(data.meals);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    RandomRecipes();
+  }, []);
 
   useEffect(() => {
     fetch(url)
@@ -21,6 +38,7 @@ const searchBar = () => {
   const searchRecipe = (evnt) => {
     if (evnt.key == "Enter") {
       setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`);
+      setShow(true);
     }
   };
 
@@ -37,18 +55,35 @@ const searchBar = () => {
       <div>
         <div className="containerSearch">
           <div className="wrapperSearch">
-            <div className="recipes">
-              {item?.map((recipe) => (
-                <div key={recipe.idMeal} className="recipe">
-                  <Link to={`/recipe/${recipe.idMeal}`}>
-                    <div className="imgContainer">
-                      <img className="imgLink" src={recipe.strMealThumb} />
+            {show ? (
+              <div className="recipes">
+                {item?.map((recipe) => (
+                  <div key={recipe.idMeal} className="recipe">
+                    <Link to={`/recipe/${recipe.idMeal}`}>
+                      <div className="imgContainer">
+                        <img className="imgLink" src={recipe.strMealThumb} />
+                      </div>
+                      <h3 className="h3Link">{recipe.strMeal}</h3>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="recipes">
+                {randomMeals
+                  ?.map((recipe) => (
+                    <div key={recipe.idMeal} className="recipe">
+                      <Link to={`/recipe/${recipe.idMeal}`}>
+                        <div className="imgContainer">
+                          <img className="imgLink" src={recipe.strMealThumb} />
+                        </div>
+                        <h3 className="h3Link">{recipe.strMeal}</h3>
+                      </Link>
                     </div>
-                    <h3 className="h3Link">{recipe.strMeal}</h3>
-                  </Link>
-                </div>
-              ))}
-            </div>
+                  ))
+                  .slice(0, 8)}
+              </div>
+            )}
           </div>
         </div>
       </div>
