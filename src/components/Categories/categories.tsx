@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./categories.style.css";
 import { Link } from "react-router-dom";
+import Pagination from "../pagination/pagination";
 
 const Categories = () => {
   const URL_CATEGORIES =
@@ -9,6 +10,8 @@ const Categories = () => {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("");
   const [recipes, setRecipes] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recipesPerPage] = useState(8);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -38,6 +41,10 @@ const Categories = () => {
     activeCategory && fetchRecipes();
   }, [activeCategory]);
 
+  const indexOflastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOflastRecipe - recipesPerPage;
+  const paginate = (pageNumbers) => setCurrentPage(pageNumbers);
+
   return (
     <div className="containerCat">
       <div className="wrapperCat">
@@ -56,16 +63,18 @@ const Categories = () => {
           ))}
         </div>
         <div className="recipes">
-          {recipes?.map((recipe) => (
-            <div key={recipe.idMeal} className="recipe">
-              <Link to={`/recipe/${recipe.idMeal}`}>
-                <div className="imgContainer">
-                  <img className="imgLink" src={recipe.strMealThumb} />
-                </div>
-                <h3 className="h3Link">{recipe.strMeal}</h3>
-              </Link>
-            </div>
-          ))}
+          {recipes
+            ?.map((recipe) => (
+              <div key={recipe.idMeal} className="recipe">
+                <Link to={`/recipe/${recipe.idMeal}`}>
+                  <div className="imgContainer">
+                    <img className="imgLink" src={recipe.strMealThumb} />
+                  </div>
+                  <h3 className="h3Link">{recipe.strMeal}</h3>
+                </Link>
+              </div>
+            ))
+            .slice(indexOfFirstRecipe, indexOflastRecipe)}
         </div>
       </div>
     </div>
