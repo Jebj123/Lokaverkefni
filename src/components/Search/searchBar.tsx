@@ -10,6 +10,13 @@ const searchBar = () => {
   const [item, setItem] = useState([]);
   const [show, setShow] = useState(false);
   const [randomMeals, setRandomMeals] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recipesPerPage] = useState(8);
+  const [activePage, setActivePage] = useState(1);
+
+  const indexOflastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOflastRecipe - recipesPerPage;
+
   const url_Random_Meals =
     "https://www.themealdb.com/api/json/v2/65232507/randomselection.php";
 
@@ -39,7 +46,19 @@ const searchBar = () => {
     if (evnt.key == "Enter") {
       setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`);
       setShow(true);
+      setActivePage(1);
+      setCurrentPage(1);
     }
+  };
+  const buttonCount = [];
+
+  for (let i = 1; i <= Math.ceil(item.length / recipesPerPage); i++) {
+    buttonCount.push(i);
+  }
+
+  const handleClick = (i) => {
+    setCurrentPage(i);
+    setActivePage(i);
   };
 
   return (
@@ -57,16 +76,41 @@ const searchBar = () => {
           <div className="wrapperSearch">
             {show ? (
               <div className="recipes">
-                {item?.map((recipe) => (
-                  <div key={recipe.idMeal} className="recipe">
-                    <Link to={`/recipe/${recipe.idMeal}`}>
-                      <div className="imgContainer">
-                        <img className="imgLink" src={recipe.strMealThumb} />
-                      </div>
-                      <h3 className="h3Link">{recipe.strMeal}</h3>
-                    </Link>
-                  </div>
-                ))}
+                {item
+                  ?.map((recipe) => (
+                    <div key={recipe.idMeal} className="recipe">
+                      <Link to={`/recipe/${recipe.idMeal}`}>
+                        <div className="imgContainer">
+                          <img className="imgLink" src={recipe.strMealThumb} />
+                        </div>
+                        <h3 className="h3Link">{recipe.strMeal}</h3>
+                      </Link>
+                    </div>
+                  ))
+                  .slice(indexOfFirstRecipe, indexOflastRecipe)}
+                <div id="searchButtons" className="Buttons">
+                  <button
+                    disabled={currentPage === 1}
+                    onClick={() => handleClick(currentPage - 1)}
+                  >
+                    Prev
+                  </button>
+                  {buttonCount.map((btn) => (
+                    <button
+                      className={btn == activePage ? "active" : ""}
+                      key={btn}
+                      onClick={() => handleClick(btn)}
+                    >
+                      {btn}
+                    </button>
+                  ))}
+                  <button
+                    disabled={currentPage === buttonCount.length}
+                    onClick={() => handleClick(currentPage + 1)}
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
             ) : (
               <div className="recipes">

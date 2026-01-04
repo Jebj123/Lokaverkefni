@@ -70,3 +70,11 @@ h4 {
   padding-left: 59.5%;
   color: orange;
 }
+
+.Buttons {
+  padding-left: 30%;
+}
+
+.active {
+  background-color: orange;
+}

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./categories.style.css";
 import { Link } from "react-router-dom";
-import Pagination from "../pagination/pagination";
 
 const Categories = () => {
   const URL_CATEGORIES =
@@ -12,6 +11,10 @@ const Categories = () => {
   const [recipes, setRecipes] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(8);
+  const [activePage, setActivePage] = useState(1);
+
+  const indexOflastRecipe = currentPage * recipesPerPage;
+  const indexOfFirstRecipe = indexOflastRecipe - recipesPerPage;
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -34,6 +37,8 @@ const Categories = () => {
         const data = await res.json();
         console.log(data);
         setRecipes(data.meals);
+        setCurrentPage(1);
+        setActivePage(1);
       } catch (error) {
         console.error(error);
       }
@@ -41,9 +46,16 @@ const Categories = () => {
     activeCategory && fetchRecipes();
   }, [activeCategory]);
 
-  const indexOflastRecipe = currentPage * recipesPerPage;
-  const indexOfFirstRecipe = indexOflastRecipe - recipesPerPage;
-  const paginate = (pageNumbers) => setCurrentPage(pageNumbers);
+  const buttonCount = [];
+
+  for (let i = 1; i <= Math.ceil(recipes.length / recipesPerPage); i++) {
+    buttonCount.push(i);
+  }
+
+  const handleClick = (i) => {
+    setCurrentPage(i);
+    setActivePage(i);
+  };
 
   return (
     <div className="containerCat">
@@ -75,6 +87,29 @@ const Categories = () => {
               </div>
             ))
             .slice(indexOfFirstRecipe, indexOflastRecipe)}
+        </div>
+        <div className="Buttons">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => handleClick(currentPage - 1)}
+          >
+            Prev
+          </button>
+          {buttonCount.map((btn) => (
+            <button
+              className={btn == activePage ? "active" : ""}
+              key={btn}
+              onClick={() => handleClick(btn)}
+            >
+              {btn}
+            </button>
+          ))}
+          <button
+            disabled={currentPage === buttonCount.length}
+            onClick={() => handleClick(currentPage + 1)}
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>

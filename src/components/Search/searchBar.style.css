@@ -24,3 +24,19 @@
   width: 100%;
   padding-bottom: 2.5rem;
 }
+
+#searchButtons {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  height: 50px;
+  width: 50px;
+  grid-column: 2/4;
+  grid-row: 3/3;
+}
+
+.recipesSearch {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  width: 100%;
+  padding-left: 20%;
+}
