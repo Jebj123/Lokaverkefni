@@ -43,7 +43,7 @@ const recipeDetail = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container-Detail">
       <div className="wrapper">
         <div className="recipe">
           <div className="recipeOrder">

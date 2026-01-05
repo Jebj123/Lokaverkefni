@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./categories.style.css";
+import "../siteStructure/categories.style.css";
 import { Link } from "react-router-dom";
 
 const Categories = () => {
@@ -58,8 +58,8 @@ const Categories = () => {
   };
 
   return (
-    <div className="containerCat">
-      <div className="wrapperCat">
+    <div className="container">
+      <div className="wrapper">
         <div className="title">
           <h2 className="h2-Cat">Hvað líst þér á</h2>
         </div>

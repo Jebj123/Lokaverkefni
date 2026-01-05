@@ -7,7 +7,7 @@
 
 .containerHome {
   display: flex;
-  width: 80%;
+  width: 84%;
   padding-left: 7%;
 }
 
@@ -25,7 +25,6 @@
 
 .information {
   padding-top: 40%;
-  padding-left: 10%;
 }
 .para-home {
   border: 2px solid orange;
@@ -35,6 +34,7 @@
 
 .randomMeal {
   padding-top: 25%;
+  padding-left: 30px;
 }
 .imgLinkHome {
   width: 400px;

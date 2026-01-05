@@ -1,58 +1,17 @@
-.container-Search {
-  width: 75%;
+.h3-Search {
+  display: grid;
+  grid-row: 1/2;
+  grid-column: 1/5;
 }
-.wrapper-Search {
-  padding-left: 1%;
-}
-.Input {
-  background-color: white;
-  color: black;
+
+.Buttons-Search {
+  display: flex;
+  padding-left: 52%;
+  grid-row: 3/ 4;
+  grid-column: 1 /4;
+  padding-top: 20px;
 }
 
 .h2-Search {
   color: orange;
-}
-
-.search-Bar {
-  align-items: center;
-  padding-bottom: 20px;
-  padding-left: 40px;
-}
-
-.search-Input {
-  height: 30px;
-  width: 200px;
-  font-size: 25px;
-  text-align: center;
-}
-.wrapper-Search {
-  display: flex;
-  padding-right: 41%;
-}
-
-#searchButtons {
-  display: flex;
-  grid-template-columns: repeat(10, 1fr);
-  height: 50px;
-  width: 50px;
-  grid-column: 1 /5;
-  grid-row: 4/4;
-  padding-left: 39%;
-}
-
-.h3-Search {
-  grid-column: 1/5;
-  grid-row: 1 / 2;
-  padding-right: 8%;
-  color: orange;
-  padding-left: 150px;
-}
-
-.recipes {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 3rem;
-  padding-left: 26%;
 }

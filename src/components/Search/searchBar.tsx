@@ -1,6 +1,7 @@
 import React, { Activity, useEffect, useState } from "react";
 import "./searchBar.style.css";
 import { Link } from "react-router-dom";
+import "../siteStructure/categories.style.css";
 
 const searchBar = () => {
   const [url, setUrl] = useState(
@@ -73,7 +74,7 @@ const searchBar = () => {
           onKeyPress={searchRecipe}
         />
       </div>
-      <div className="wrapper-Search">
+      <div className="wrapper">
         {show ? (
           <div className="recipes">
             {item
@@ -88,7 +89,7 @@ const searchBar = () => {
                 </div>
               ))
               .slice(indexOfFirstRecipe, indexOflastRecipe)}
-            <div id="searchButtons" className="Buttons">
+            <div className="Buttons-Search">
               <button
                 disabled={currentPage === 1}
                 onClick={() => handleClick(currentPage - 1)}
