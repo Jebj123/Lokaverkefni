@@ -15,6 +15,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
+  padding-left: 3%;
 }
 
 .h2-Home {
@@ -40,8 +41,4 @@
   height: 400px;
   border-radius: 10px;
   border: 2px solid orange;
-}
-
-.recipes {
-  padding-left: 20%;
 }

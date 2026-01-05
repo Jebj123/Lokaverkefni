@@ -1,3 +1,9 @@
+.container-Search {
+  width: 75%;
+}
+.wrapper-Search {
+  padding-left: 1%;
+}
 .Input {
   background-color: white;
   color: black;
@@ -7,36 +13,46 @@
   color: orange;
 }
 
-.searchBar {
-  width: 300px;
-  height: 40px;
-  font-size: 20px;
+.search-Bar {
+  align-items: center;
+  padding-bottom: 20px;
+  padding-left: 40px;
 }
 
-.containerSearch {
-  min-height: calc(100vh - 60px);
-  width: 75%;
-  margin-top: 3.5rem;
+.search-Input {
+  height: 30px;
+  width: 200px;
+  font-size: 25px;
+  text-align: center;
 }
-
-.wrapperSearch {
-  height: 100%;
-  width: 100%;
-  padding-bottom: 2.5rem;
+.wrapper-Search {
+  display: flex;
+  padding-right: 41%;
 }
 
 #searchButtons {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(10, 1fr);
   height: 50px;
   width: 50px;
-  grid-column: 2/4;
-  grid-row: 3/3;
+  grid-column: 1 /5;
+  grid-row: 4/4;
+  padding-left: 39%;
 }
 
-.recipesSearch {
+.h3-Search {
+  grid-column: 1/5;
+  grid-row: 1 / 2;
+  padding-right: 8%;
+  color: orange;
+  padding-left: 150px;
+}
+
+.recipes {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  width: 100%;
-  padding-left: 20%;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding-left: 26%;
 }

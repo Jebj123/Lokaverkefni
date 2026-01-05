@@ -62,74 +62,75 @@ const searchBar = () => {
   };
 
   return (
-    <div className="Input-Wrap">
-      <h2 className="h2-Search">Leitaðu að máltíð</h2>
-      <input
-        className="searchBar"
-        type="search"
-        placeholder="Leita..."
-        onChange={(e) => setSearch(e.target.value)}
-        onKeyPress={searchRecipe}
-      />
-      <div>
-        <div className="containerSearch">
-          <div className="wrapperSearch">
-            {show ? (
-              <div className="recipes">
-                {item
-                  ?.map((recipe) => (
-                    <div key={recipe.idMeal} className="recipe">
-                      <Link to={`/recipe/${recipe.idMeal}`}>
-                        <div className="imgContainer">
-                          <img className="imgLink" src={recipe.strMealThumb} />
-                        </div>
-                        <h3 className="h3Link">{recipe.strMeal}</h3>
-                      </Link>
+    <div className="container">
+      <div className="search-Bar">
+        <h2 className="h2-Search">Leitaðu að máltíð</h2>
+        <input
+          className="search-Input"
+          type="search"
+          placeholder="Leita..."
+          onChange={(e) => setSearch(e.target.value)}
+          onKeyPress={searchRecipe}
+        />
+      </div>
+      <div className="wrapper-Search">
+        {show ? (
+          <div className="recipes">
+            {item
+              ?.map((recipe) => (
+                <div key={recipe.idMeal} className="recipe">
+                  <Link to={`/recipe/${recipe.idMeal}`}>
+                    <div className="imgContainer">
+                      <img className="imgLink" src={recipe.strMealThumb} />
                     </div>
-                  ))
-                  .slice(indexOfFirstRecipe, indexOflastRecipe)}
-                <div id="searchButtons" className="Buttons">
-                  <button
-                    disabled={currentPage === 1}
-                    onClick={() => handleClick(currentPage - 1)}
-                  >
-                    Prev
-                  </button>
-                  {buttonCount.map((btn) => (
-                    <button
-                      className={btn == activePage ? "active" : ""}
-                      key={btn}
-                      onClick={() => handleClick(btn)}
-                    >
-                      {btn}
-                    </button>
-                  ))}
-                  <button
-                    disabled={currentPage === buttonCount.length}
-                    onClick={() => handleClick(currentPage + 1)}
-                  >
-                    Next
-                  </button>
+                    <h3 className="h3Link">{recipe.strMeal}</h3>
+                  </Link>
                 </div>
-              </div>
-            ) : (
-              <div className="recipes">
-                {randomMeals
-                  ?.map((recipe) => (
-                    <div key={recipe.idMeal} className="recipe">
-                      <Link to={`/recipe/${recipe.idMeal}`}>
-                        <div className="imgContainer">
-                          <img className="imgLink" src={recipe.strMealThumb} />
-                        </div>
-                        <h3 className="h3Link">{recipe.strMeal}</h3>
-                      </Link>
-                    </div>
-                  ))
-                  .slice(0, 8)}
-              </div>
-            )}
+              ))
+              .slice(indexOfFirstRecipe, indexOflastRecipe)}
+            <div id="searchButtons" className="Buttons">
+              <button
+                disabled={currentPage === 1}
+                onClick={() => handleClick(currentPage - 1)}
+              >
+                Prev
+              </button>
+              {buttonCount.map((btn) => (
+                <button
+                  className={btn == activePage ? "active" : ""}
+                  key={btn}
+                  onClick={() => handleClick(btn)}
+                >
+                  {btn}
+                </button>
+              ))}
+              <button
+                disabled={currentPage === buttonCount.length}
+                onClick={() => handleClick(currentPage + 1)}
+              >
+                Next
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="recipes">
+            <div className="h3-Search">
+              <h3>Dæmi um máltíðir:</h3>
+            </div>
+            {randomMeals
+              ?.map((recipe) => (
+                <div key={recipe.idMeal} className="recipe">
+                  <Link to={`/recipe/${recipe.idMeal}`}>
+                    <div className="imgContainer">
+                      <img className="imgLink" src={recipe.strMealThumb} />
+                    </div>
+                    <h3 className="h3Link">{recipe.strMeal}</h3>
+                  </Link>
+                </div>
+              ))
+              .slice(0, 8)}
+          </div>
+        )}
       </div>
     </div>
   );
