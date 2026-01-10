@@ -64,7 +64,7 @@ const recipeDetail = () => {
         </div>
         <div className="instructions">
           <h3>Leiðbeiningar</h3>
-          <span>{instructions}</span>
+          <span className="instruct-Span">{instructions}</span>
         </div>
       </div>
     </div>

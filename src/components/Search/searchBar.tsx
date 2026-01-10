@@ -1,4 +1,4 @@
-import React, { Activity, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./searchBar.style.css";
 import { Link } from "react-router-dom";
 import "../siteStructure/categories.style.css";

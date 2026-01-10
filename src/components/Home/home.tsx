@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./home.style.css";
-import SearchBar from "../Search/searchBar";
 import mainChef from "/src/assets/MonkeyCook.jpg";
 import { Link } from "react-router-dom";
 

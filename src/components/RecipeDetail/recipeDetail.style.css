@@ -63,3 +63,7 @@ h3 {
 .recipeOrder {
   padding-right: 10%;
 }
+
+.instruct-Span {
+  white-space: pre-line;
+}
