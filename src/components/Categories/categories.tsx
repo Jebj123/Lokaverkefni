@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../siteStructure/categories.style.css";
 import { Link } from "react-router-dom";
+import { TbAlphabetGreek } from "react-icons/tb";
 
 const Categories = () => {
   const URL_CATEGORIES =
     "https://www.themealdb.com/api/json/v1/1/categories.php";
-  const URL_RECIPES = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+  const URL_CAT_RECIPES =
+    "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
+
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("");
   const [recipes, setRecipes] = useState([]);
@@ -33,9 +36,8 @@ const Categories = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const res = await fetch(`${URL_RECIPES}${activeCategory}`);
+        const res = await fetch(`${URL_CAT_RECIPES}${activeCategory}`);
         const data = await res.json();
-        console.log(data);
         setRecipes(data.meals);
         setCurrentPage(1);
         setActivePage(1);

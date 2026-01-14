@@ -26,7 +26,6 @@ const searchBar = () => {
       try {
         const res = await fetch(`${url_Random_Meals}`);
         const data = await res.json();
-        console.log(data);
         setRandomMeals(data.meals);
       } catch (error) {
         console.error(error);

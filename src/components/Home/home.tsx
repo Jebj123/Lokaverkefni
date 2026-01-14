@@ -12,7 +12,6 @@ const home = () => {
       try {
         const res = await fetch(`${url_Random}`);
         const data = await res.json();
-        console.log(data);
         setRandomMeal(data.meals);
       } catch (error) {
         console.error(error);
