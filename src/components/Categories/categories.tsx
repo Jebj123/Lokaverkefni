@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../siteStructure/categories.style.css";
 import { Link } from "react-router-dom";
-import { TbAlphabetGreek } from "react-icons/tb";
 
 const Categories = () => {
   const URL_CATEGORIES =
