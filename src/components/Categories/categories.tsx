@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "../siteStructure/categories.style.css";
+import "../siteStructure/siteStructure.style.css";
 import { Link } from "react-router-dom";
+import type { Category, Recipe } from "../Utils/utils";
 
 const Categories = () => {
   const URL_CATEGORIES =
@@ -8,9 +9,9 @@ const Categories = () => {
   const URL_CAT_RECIPES =
     "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
 
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [activeCategory, setActiveCategory] = useState("");
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(8);
   const [activePage, setActivePage] = useState(1);
@@ -67,7 +68,11 @@ const Categories = () => {
         <div className="categories">
           {categories?.map((category) => (
             <div
-              className="category"
+              className={
+                activeCategory === category.strCategory
+                  ? "activecategory"
+                  : "category"
+              }
               onClick={() => setActiveCategory(category.strCategory)}
               key={category.idCategory}
             >

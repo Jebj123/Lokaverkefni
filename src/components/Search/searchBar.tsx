@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./searchBar.style.css";
 import { Link } from "react-router-dom";
-import "../siteStructure/categories.style.css";
+import "../siteStructure/siteStructure.style.css";
+import type { Recipe } from "../Utils/utils";
 
 const searchBar = () => {
   const [url, setUrl] = useState(
     "https://www.themealdb.com/api/json/v1/1/search.php?s="
   );
   const [search, setSearch] = useState("");
-  const [item, setItem] = useState([]);
+  const [item, setItem] = useState<Recipe[]>([]);
   const [show, setShow] = useState(false);
-  const [randomMeals, setRandomMeals] = useState([]);
+  const [randomMeals, setRandomMeals] = useState<Recipe[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(8);
   const [activePage, setActivePage] = useState(1);
@@ -42,7 +43,7 @@ const searchBar = () => {
       });
   }, [url]);
 
-  const searchRecipe = (evnt) => {
+  const searchRecipe = (evnt: React.KeyboardEvent<HTMLInputElement>) => {
     if (evnt.key == "Enter") {
       setUrl(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`);
       setShow(true);
@@ -56,7 +57,7 @@ const searchBar = () => {
     buttonCount.push(i);
   }
 
-  const handleClick = (i) => {
+  const handleClick = (i: number) => {
     setCurrentPage(i);
     setActivePage(i);
   };

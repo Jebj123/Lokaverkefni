@@ -27,6 +27,16 @@ body {
   border-radius: 5px;
 }
 
+.activecategory {
+  background-color: #d4891896;
+  display: flex;
+  flex-direction: row;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #d79734;
+  color: #d79734;
+  border-radius: 5px;
+}
+
 .recipes {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

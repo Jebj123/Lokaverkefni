@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./home.style.css";
 import mainChef from "/src/assets/MonkeyCook.jpg";
 import { Link } from "react-router-dom";
+import type { Recipe } from "../Utils/utils";
 
 const home = () => {
   const url_Random = "https://www.themealdb.com/api/json/v1/1/random.php";
-  const [randomMeal, setRandomMeal] = useState([]);
+  const [randomMeal, setRandomMeal] = useState<Recipe[]>([]);
 
   useEffect(() => {
     const RandomRecipe = async () => {
