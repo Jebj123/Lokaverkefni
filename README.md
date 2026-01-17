@@ -31,6 +31,7 @@ SearchBar
 -einnig með pagination
 -inniheldur sér css fyrir input og texta
 -inniheldur notast einnig við sitestructure.style.css fyrir stíl og grid
+-inniheldur einnig tvær mismunandi síður byrjunarsíðan gefur dæmi um máltíðir en þegar þú leitar að lamb eða eitthvað slík færist það á yfir hina síðuna sem leitarvél skilar
 
 SiteStructure
 -Notað í -Searchbar -Categories -searchBar sem er í raun grid Templatið svo að hefur Grunnin á gridsysteminu saman
